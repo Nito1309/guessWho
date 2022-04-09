@@ -5,7 +5,9 @@ module.exports = {
     "./components/**/*.{html,jsx}"
   ],
   theme: {
-    extend: {},
+    backgroundImage: {
+      'background-menu': "url('assets/img/background-menu.png')",
+    }
   },
   plugins: [],
 }
