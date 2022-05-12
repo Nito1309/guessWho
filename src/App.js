@@ -1,8 +1,8 @@
-import Menu from './components/Menu';
+import Router from './routing'
 
 function App() {
   return (
-  <Menu/> 
+  <Router/> 
   );
 }
 
