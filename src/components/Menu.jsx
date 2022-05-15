@@ -15,9 +15,9 @@ function Menu() {
                         <h1 className='text-3xl'>Guess Who</h1>
                         < AccountCircleIcon color='primary' sx={{ fontSize: 50 }} />
                        <BasicButton navigate='/creategame' text="Create game"></BasicButton>
-                        <BasicButton text='Join Game'></BasicButton>
+                        <BasicButton navigate='/join' text='Join Game'></BasicButton>
                        <BasicButton navigate='/login' text="Login"></BasicButton>
-                        <BasicButton text='Game'></BasicButton>
+                        <BasicButton navigate='/leaderboard' text='Leaderboard'></BasicButton>
                     </Stack>
                 </Stack>
         </div>

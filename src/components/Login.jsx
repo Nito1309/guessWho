@@ -63,7 +63,7 @@ function Login() {
             )
             }}
             />
-            <BasicButton text='Login'></BasicButton>
+            <BasicButton navigate='/' text='Login'></BasicButton>
                     </Stack>
                 </Stack>
             </div>
