@@ -1,12 +1,11 @@
 import React from 'react'
 import { Stack, Button } from '@mui/material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import { Link } from 'react-router-dom';
+import BasicButton from './form-components/BasicButton';
 
 function Menu() {
     return (
         <div id="parent" className='w-full h-screen bg-background-menu bg-cover'>
-            <div >
                 <Stack spacing={2}
                     alignItems="center" >
                     <Stack spacing={3}
@@ -15,14 +14,12 @@ function Menu() {
                         className='w-96 border-2 rounded-3xl p-10 pb-20 mt-20'>
                         <h1 className='text-3xl'>Guess Who</h1>
                         < AccountCircleIcon color='primary' sx={{ fontSize: 50 }} />
-                       <Button className='w-60' variant="contained" Link='/CreateGame'> <Link to='/CreateGame'>Crear partida</Link></Button>
-                        
-                        <Button className='w-60' variant="contained" >Unirse a partida</Button>
-                        <Button className='w-60' variant="contained" >Iniciar sesi&oacute;n</Button>
-                        <Button className='w-60' variant="contained" >Configuraci&oacute;n</Button>
+                       <BasicButton navigate='/creategame' text="Create game"></BasicButton>
+                        <BasicButton text='Join Game'></BasicButton>
+                       <BasicButton navigate='/login' text="Login"></BasicButton>
+                        <BasicButton text='Game'></BasicButton>
                     </Stack>
                 </Stack>
-            </div>
         </div>
     )
 }
