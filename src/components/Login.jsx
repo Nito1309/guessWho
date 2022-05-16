@@ -9,6 +9,7 @@ import TextField from '@mui/material/TextField';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import BasicButton from './form-components/BasicButton';
+import BackButton from './form-components/BackButton';
 
 function Login() {
     const [values, setValues] = React.useState({
@@ -36,6 +37,7 @@ function Login() {
 
     return (
         <div id="parent" className='w-full h-screen bg-background-menu bg-cover'>
+            <BackButton text={'Guess who ?'} bgcolor='#F8CE3D' navigate='/'></BackButton>
                 <Stack spacing={2}
                     alignItems="center" >
                     <Stack spacing={3}

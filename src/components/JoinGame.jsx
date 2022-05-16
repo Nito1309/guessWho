@@ -9,7 +9,7 @@ import TextField from '@mui/material/TextField';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import BasicButton from './form-components/BasicButton';
-
+import BackButton from './form-components/BackButton';
 function JoinGame() {
     const [values, setValues] = React.useState({
         amount: '',
@@ -21,6 +21,7 @@ function JoinGame() {
     
     return (
         <div id="parent" className='w-full h-screen bg-background-join bg-cover'>
+            <BackButton text={'Guess who ?'} bgcolor='#1976D2' navigate='/'></BackButton>
                 <Stack spacing={2}
                     alignItems="center" >
                     <Stack spacing={3}

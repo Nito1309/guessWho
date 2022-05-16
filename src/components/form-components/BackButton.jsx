@@ -5,22 +5,13 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { fontSize } from "@mui/system";
 
 const BackButton = ({text,navigate='' , bgcolor}) => {
-    // const ColorButton = styled(Button)<ButtonProps>(({ theme }) => ({
-    //     color: theme.palette.getContrastText(purple[500]),
-    //     backgroundColor: purple[500],
-    //     '&:hover': {
-    //       backgroundColor: purple[700],
-    //     },
-    //   }));
-
-    if (navigate!=''){
+    if (navigate!==''){
     return( 
         <Link to={navigate}>
-        <Button className='w-30 h-18' size="large"  variant="contained" startIcon={<ArrowBackIosIcon/>} 
-        sx={{ bgcolor: bgcolor , fontSize: '20px', 
+        <Button className='w-30 h-18 !mt-10' size="large"  variant="contained" startIcon={<ArrowBackIosIcon/>} 
+        sx={{ bgcolor: bgcolor , fontSize: '20px', //TODO change magic numbers
         '&:hover': {
-            backgroundColor: 'white',
-          },}}>{text}</Button>
+            backgroundColor: adjustColor(bgcolor,-20),  },}}>{text}</Button>
 
         </Link>
     )
@@ -30,5 +21,7 @@ const BackButton = ({text,navigate='' , bgcolor}) => {
     )
     }
 }
-
+function adjustColor(color, amount) {
+    return '#' + color.replace(/^#/, '').replace(/../g, color => ('0'+Math.min(255, Math.max(0, parseInt(color, 16) + amount)).toString(16)).substr(-2));
+}
 export default BackButton;
