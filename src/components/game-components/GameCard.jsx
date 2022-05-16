@@ -6,26 +6,32 @@ import DefaultImage from '../../assets/img/character-default.png'
 import UnknownCharacter from '../../assets/img/background-card.png'
 import Chip from '@mui/material/Chip';
 import { ButtonBase, CardActionArea } from '@mui/material';
+import { Link } from 'react-router-dom';
 
-const GameCard = ({picture='character-default', name='Nito'}, id) => {
+
+const GameCard = ({picture='character-default', name='Nito'}, id, link) => {
 
   const [background, setBackground] = React.useState(DefaultImage);
-
+  const [cname, setName] = React.useState(name);
   const handleClick = () => {
     setBackground(UnknownCharacter);
+    setName('');
   }
 
   return( 
-    <Card className={`w-32 `} >
+  <Card className={`w-32 `} >
+    {/* <Link to={link}> */}
       <CardActionArea
-        onClick={handleClick}>
+        onClick={handleClick}
+       >
         <CardContent>
           <img src={background}/>
         </CardContent>
         <CardActions className='flex justify-center'>
-          <Chip className='!px-8 ' color='primary' label={name} />
+          <Chip className='!px-8 ' color='primary' label={cname} />
         </CardActions>
       </CardActionArea>
+      {/* </Link> */}
     </Card>
   )   
 }

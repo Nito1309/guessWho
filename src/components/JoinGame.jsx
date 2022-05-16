@@ -21,7 +21,7 @@ function JoinGame() {
     
     return (
         <div id="parent" className='w-full h-screen bg-background-join bg-cover'>
-            <BackButton text={'Guess who ?'} bgcolor='#1976D2' navigate='/'></BackButton>
+            <BackButton text={'Guess who ?'} bgcolor='#1976D2' navigate='/'/>
                 <Stack spacing={2}
                     alignItems="center" >
                     <Stack spacing={3}
