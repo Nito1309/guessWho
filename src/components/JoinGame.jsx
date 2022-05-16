@@ -1,13 +1,6 @@
 import React from 'react'
 import { Stack, Button } from '@mui/material';
-import { Link } from 'react-router-dom';
-import IconButton from '@mui/material/IconButton';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import InputLabel from '@mui/material/InputLabel';
-import InputAdornment from '@mui/material/InputAdornment';
 import TextField from '@mui/material/TextField';
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import BasicButton from './form-components/BasicButton';
 import BackButton from './form-components/BackButton';
 function JoinGame() {
@@ -21,7 +14,7 @@ function JoinGame() {
     
     return (
         <div id="parent" className='w-full h-screen bg-background-join bg-cover'>
-            <BackButton text={'Guess who ?'} bgcolor='#1976D2' navigate='/'></BackButton>
+            <BackButton text={'Guess who ?'} bgcolor='#1976D2' navigate='/'/>
                 <Stack spacing={2}
                     alignItems="center" >
                     <Stack spacing={3}
@@ -31,7 +24,7 @@ function JoinGame() {
                         <h1 className='text-3xl'>Join Game</h1>
                         <h2 className='text-2xl'>Enter Game ID</h2>
                        <TextField className="w-9/12" id="outlined-basic" label="Gamer ID" variant="outlined"/>
-            <BasicButton navigate='/' text='Enter'></BasicButton>
+            <BasicButton navigate='/creategame' text='Enter'/>
                     </Stack>
                 </Stack>
             </div>

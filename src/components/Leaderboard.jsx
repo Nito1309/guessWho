@@ -19,7 +19,7 @@ const rows = [
 function Leaderboard(){
     return( 
         <div id="parent" className='w-full h-screen bg-background-leaderboard bg-cover'>
-            <BackButton  text={'Guess who ?'} bgcolor='#7B61FF' navigate='/'></BackButton>
+            <BackButton  text={'Guess who ?'} bgcolor='#7B61FF' navigate='/'/>
             <center><h1 className='text-3xl mb-3' >Leaderboard</h1></center>
             <div id="container" className='flex justify-center w-full'>
             <div className='w-2/5'>

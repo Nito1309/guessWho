@@ -1,9 +1,6 @@
 import React from 'react'
-import { Stack, Button } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Stack } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import InputLabel from '@mui/material/InputLabel';
 import InputAdornment from '@mui/material/InputAdornment';
 import TextField from '@mui/material/TextField';
 import Visibility from '@mui/icons-material/Visibility';
@@ -37,7 +34,7 @@ function Login() {
 
     return (
         <div id="parent" className='w-full h-screen bg-background-login bg-cover'>
-            <BackButton text={'Guess who ?'} bgcolor='#F8CE3D' navigate='/'></BackButton>
+            <BackButton text={'Guess who ?'} bgcolor='#F8CE3D' navigate='/'/>
                 <Stack spacing={2}
                     alignItems="center" >
                     <Stack spacing={3}
@@ -65,7 +62,7 @@ function Login() {
             )
             }}
             />
-            <BasicButton navigate='/' text='Login'></BasicButton>
+            <BasicButton navigate='/' text='Login'/>
                     </Stack>
                 </Stack>
             </div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Stack, Button } from '@mui/material';
+import { Stack } from '@mui/material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import BasicButton from './form-components/BasicButton';
 
@@ -14,10 +14,10 @@ function Menu() {
                         className='w-96 border-2 rounded-3xl p-10 pb-20 mt-20'>
                         <h1 className='text-3xl'>Guess Who</h1>
                         < AccountCircleIcon color='primary' sx={{ fontSize: 50 }} />
-                       <BasicButton navigate='/creategame' text="Create game"></BasicButton>
-                        <BasicButton navigate='/join' text='Join Game'></BasicButton>
-                       <BasicButton navigate='/login' text="Login"></BasicButton>
-                        <BasicButton navigate='/leaderboard' text='Leaderboard'></BasicButton>
+                       <BasicButton navigate='/creategame' text="Create game"/>
+                        <BasicButton navigate='/join' text='Join Game'/>
+                       <BasicButton navigate='/login' text="Login"/>
+                        <BasicButton navigate='/leaderboard' text='Leaderboard'/>
                     </Stack>
                 </Stack>
         </div>
