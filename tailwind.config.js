@@ -12,6 +12,7 @@ module.exports = {
       'background-create-game': "url('assets/img/background-create-game.png')",
       'background-game': "url('assets/img/background-game.png')",
       'background-login': "url('assets/img/background-login.png')",
+      'background-card': "url('assets/img/background-card.png')",
     }
   },
   plugins: [],
