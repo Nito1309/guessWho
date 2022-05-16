@@ -13,6 +13,7 @@ import MustacheIcon from '../assets/img/mustache_icon.svg'
 import PickerIcon from '../assets/img/picker_icon.svg'
 import GameCard from "./game-components/GameCard";
 import { Button } from "@mui/material";
+import { Link } from "react-router-dom";
 
 class PlayerCard {
     constructor(name,image){
@@ -39,7 +40,7 @@ function Game() {
                         direction="column"
                         alignItems="center">
                         <h2>Your character:</h2>
-                        <GameCard></GameCard>
+                        <GameCard disabled={true} ></GameCard>
                     </Stack>
                     <Card className='w-20' >
                         <CardContent>
@@ -61,13 +62,17 @@ function Game() {
                         backgroundColor: "#F8CE3D" //TODO make proper pallet
                     }}
                     className='w-40' variant="contained" >GUESS</Button>
+                    <Link to='/'>
+                        <Button className='w-40' >Back</Button>
+                    </Link>
+                    
                 </Stack>
             </div>
             <div className='basis-4/5' id='game-panel'>
                 <div id='card-container' className='w-4/5 grid grid-cols-4 gap-2 mt-5 place-items-center'>
                     {
                         deck.map((value, index) => {
-                            return <GameCard name={value.name}></GameCard>
+                            return <GameCard  name={value.name}></GameCard>
                         })
                     }
                 </div>

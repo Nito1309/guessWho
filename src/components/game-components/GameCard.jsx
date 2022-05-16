@@ -9,13 +9,16 @@ import { ButtonBase, CardActionArea } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 
-const GameCard = ({picture='character-default', name='Nito'}, id, link) => {
+const GameCard = ( {picture='character-default', name='Nito', disabled=false}, id) => {
 
   const [background, setBackground] = React.useState(DefaultImage);
   const [cname, setName] = React.useState(name);
   const handleClick = () => {
-    setBackground(UnknownCharacter);
-    setName('');
+    console.log(disabled);
+    if(!disabled){
+      setBackground(UnknownCharacter);
+      setName('');
+    }
   }
 
   return( 
