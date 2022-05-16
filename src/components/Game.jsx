@@ -63,7 +63,7 @@ function Game() {
                     }}
                     className='w-40' variant="contained" >GUESS</Button>
                     <Link to='/'>
-                        <Button className='w-40' >Back</Button>
+                        <Button className='w-40' >Exit</Button>
                     </Link>
                     
                 </Stack>
@@ -72,7 +72,7 @@ function Game() {
                 <div id='card-container' className='w-4/5 grid grid-cols-4 gap-2 mt-5 place-items-center'>
                     {
                         deck.map((value, index) => {
-                            return <GameCard  name={value.name}></GameCard>
+                            return <GameCard  name={value.name}/>
                         })
                     }
                 </div>

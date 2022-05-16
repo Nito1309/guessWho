@@ -5,8 +5,8 @@ import CardContent from '@mui/material/CardContent';
 import DefaultImage from '../../assets/img/character-default.png'
 import UnknownCharacter from '../../assets/img/background-card.png'
 import Chip from '@mui/material/Chip';
-import { ButtonBase, CardActionArea } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { CardActionArea } from '@mui/material';
+
 
 
 const GameCard = ( {picture='character-default', name='Nito', disabled=false}, id) => {
