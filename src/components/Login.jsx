@@ -36,14 +36,14 @@ function Login() {
       };
 
     return (
-        <div id="parent" className='w-full h-screen bg-background-menu bg-cover'>
+        <div id="parent" className='w-full h-screen bg-background-login bg-cover'>
             <BackButton text={'Guess who ?'} bgcolor='#F8CE3D' navigate='/'></BackButton>
                 <Stack spacing={2}
                     alignItems="center" >
                     <Stack spacing={3}
                         direction="column"
                         alignItems="center"
-                        className='w-96 border-2 rounded-3xl p-10 pb-20 mt-20'>
+                        className='w-96 border-2 bg-white rounded-3xl p-10 pb-20 mt-20'>
                         <h1 className='text-3xl'>Login</h1>
                         <h2 className='text-2xl'>Start guessing !</h2>
                        <TextField className="w-9/12" id="outlined-basic" label="Email" variant="outlined"/>
