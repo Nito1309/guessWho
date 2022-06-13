@@ -17,7 +17,9 @@ function Menu() {
                        <BasicButton navigate='/creategame' text="Create game"/>
                         <BasicButton navigate='/join' text='Join Game'/>
                        <BasicButton navigate='/login' text="Login"/>
+                       <BasicButton navigate='/signup' text="Signup"/>
                         <BasicButton navigate='/leaderboard' text='Leaderboard'/>
+                        <BasicButton navigate='/game' text='Game (temp)'/>
                     </Stack>
                 </Stack>
         </div>

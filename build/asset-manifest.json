@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.67f68dfe.css",
-    "main.js": "/static/js/main.20a73529.js",
+    "main.css": "/static/css/main.b2e4e2db.css",
+    "main.js": "/static/js/main.28bf7fef.js",
     "static/js/787.4264158c.chunk.js": "/static/js/787.4264158c.chunk.js",
     "static/media/background-menu.png": "/static/media/background-menu.5f8164d8e6586f8b8cf7.png",
     "static/media/background-leaderboard.png": "/static/media/background-leaderboard.6fd2010f24a910a39af9.png",
-    "static/media/background-create-game.png": "/static/media/background-create-game.709b7c8514994f5cec96.png",
     "static/media/background-join.png": "/static/media/background-join.405583de062bf333a4b7.png",
     "static/media/background-game.png": "/static/media/background-game.92b0158e4fdbd1348d9c.png",
+    "static/media/background-create-game.png": "/static/media/background-create-game.b3ab66c5cba1302481bd.png",
     "static/media/background-login.png": "/static/media/background-login.d0c577b034bb52f17e48.png",
     "static/media/character-default.png": "/static/media/character-default.ea325ec4ff8287f03f76.png",
+    "static/media/background-card.png": "/static/media/background-card.9a5a20b9cc32d767f0d9.png",
     "static/media/hair_icon.svg": "/static/media/hair_icon.01f3907e7a8b50e6e6c88901074ff1a0.svg",
     "static/media/picker_icon.svg": "/static/media/picker_icon.02fabaa82184146a3db7378883e51a18.svg",
     "static/media/hat_icon.svg": "/static/media/hat_icon.ef4fa7e186ccb3b284d16f04f15d4bb2.svg",
@@ -18,12 +19,12 @@
     "static/media/mustache_icon.svg": "/static/media/mustache_icon.44da15638303107b4026f05813a32f59.svg",
     "index.html": "/index.html",
     "static/media/bald_icon.svg": "/static/media/bald_icon.dbfb6a6ae85929ec8564bbe3f04ba79f.svg",
-    "main.67f68dfe.css.map": "/static/css/main.67f68dfe.css.map",
-    "main.20a73529.js.map": "/static/js/main.20a73529.js.map",
+    "main.b2e4e2db.css.map": "/static/css/main.b2e4e2db.css.map",
+    "main.28bf7fef.js.map": "/static/js/main.28bf7fef.js.map",
     "787.4264158c.chunk.js.map": "/static/js/787.4264158c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.67f68dfe.css",
-    "static/js/main.20a73529.js"
+    "static/css/main.b2e4e2db.css",
+    "static/js/main.28bf7fef.js"
   ]
 }
