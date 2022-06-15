@@ -7,9 +7,12 @@ import { useState } from 'react';
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
+import { stringify } from 'postcss';
+import { useNavigate } from 'react-router-dom';
 
 function Signup() {
-
+    const navigate = useNavigate();
+    //const [logged, setLogged] = useState(false);
     const validationSchema = Yup.object().shape({
         nombre: Yup.string().required('name is required'),
         apellido: Yup.string().required('lastname is required'),
@@ -24,31 +27,28 @@ function Signup() {
           .max(40, 'Password must not exceed 40 characters')
       });
 
-      const {
-        register,
-        control,
-        handleSubmit,
-        formState: { errors }
-      } = useForm({
+      const { register, control, handleSubmit,formState: { errors } } = useForm({
         resolver: yupResolver(validationSchema)
       });
+      
 
-    const onSubmit = data => {
-        //console.log(JSON.stringify(data,null,2));
-        fetch('https://guesswhofunc.azurewebsites.net/api/SIGNUP', {
+    async function onSubmit (data) {
+            await fetch('https://guesswhofunc.azurewebsites.net/api/SIGNUP', {
                 method: 'POST',
                 headers: {
                     "Content-Type":"application/json",
                 },
-                mode: 'cors',
-                body: JSON.stringify(data,null,2)
+                body: JSON.stringify(data)
             })
             .then((response) => response.json())
-            .then((json) => {
-                console.log(json);
+            .then((data) => {
+                data.success ? navigate('/') : navigate('/signup')
+            })
+            .catch((error) => {
+                console.error(error.message);
             });
-    };
-        
+            
+    }
 
     return (
         <div id="parent" className='w-full h-screen bg-background-login bg-cover'>
@@ -77,7 +77,7 @@ function Signup() {
                                 {...register('contra')} error={errors.contra ? true: false}/>
                                 <Typography>{errors.contra?.message}</Typography>
                             {/* <BasicButton navigate='/' onClick={handleClick} text='Signup'/> */}
-                            <Button onClick={handleSubmit(onSubmit)} className='w-60' variant="contained">Signup</Button>
+                                <Button onClick={handleSubmit(onSubmit)} className='w-60' variant="contained">Signup</Button>
                         </Stack>
                 </Stack>
             </div>
