@@ -1,18 +1,18 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, Stack, Typography } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import BasicButton from './form-components/BasicButton';
 import BackButton from './form-components/BackButton';
-import { useState } from 'react';
-import { useForm, Controller } from "react-hook-form";
+import { useForm, Controller, set } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { stringify } from 'postcss';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Redirect} from 'react-router-dom';
 
 function Signup() {
+    
     const navigate = useNavigate();
-    //const [logged, setLogged] = useState(false);
+    const [userLogged, setLogged] = useState({});
     const validationSchema = Yup.object().shape({
         nombre: Yup.string().required('name is required'),
         apellido: Yup.string().required('lastname is required'),
@@ -27,22 +27,51 @@ function Signup() {
           .max(40, 'Password must not exceed 40 characters')
       });
 
-      const { register, control, handleSubmit,formState: { errors } } = useForm({
-        resolver: yupResolver(validationSchema)
-      });
-      
+    const { register, control, handleSubmit,formState: { errors } } = useForm({
+    resolver: yupResolver(validationSchema)
+    });
+    
+    useEffect(() => {
+        try{
+            const storedData = JSON.parse(localStorage.getItem('session'));
+            if(storedData){
+                if(storedData.logged){
+                    console.log("holis");
+                    navigate('/');
+                }
+            }else{
+                console.log("user haven't logged");
+            }
+        }catch(e){
+            console.error(e.message);
+        }
+        
+        
+            
+    }, [])
+
+    useEffect(() => {
+        localStorage.setItem('session', userLogged);
+    }, [userLogged])
 
     async function onSubmit (data) {
+        const jsonData = JSON.stringify(data);
             await fetch('https://guesswhofunc.azurewebsites.net/api/SIGNUP', {
                 method: 'POST',
                 headers: {
                     "Content-Type":"application/json",
                 },
-                body: JSON.stringify(data)
+                body: jsonData
             })
             .then((response) => response.json())
             .then((data) => {
-                data.success ? navigate('/') : navigate('/signup')
+                if(data.success){
+                    setLogged(JSON.stringify({jsonData, logged:true}));      
+                    navigate('/');              
+                }else{
+                    alert("Something went wrong");
+                    navigate('/signup');
+                } 
             })
             .catch((error) => {
                 console.error(error.message);

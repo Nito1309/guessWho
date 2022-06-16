@@ -6,7 +6,10 @@ import { Routes, Route } from 'react-router-dom'
 import JoinGame from "./components/JoinGame";
 import  Leaderboard  from "./components/Leaderboard";
 import Game from "./components/Game";
+import { useState } from "react";
+import { useEffect } from "react";
 function Router () {
+    
     return (
         <Routes>
             <Route exact path='/' element={Menu()}/>
