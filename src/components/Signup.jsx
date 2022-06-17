@@ -7,12 +7,11 @@ import { useForm, Controller, set } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { stringify } from 'postcss';
-import { useNavigate, Redirect} from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 
-function Signup() {
+function Signup({sessionUpdate}) {
     
     const navigate = useNavigate();
-    const [userLogged, setLogged] = useState({});
     const validationSchema = Yup.object().shape({
         nombre: Yup.string().required('name is required'),
         apellido: Yup.string().required('lastname is required'),
@@ -31,29 +30,6 @@ function Signup() {
     resolver: yupResolver(validationSchema)
     });
     
-    useEffect(() => {
-        try{
-            const storedData = JSON.parse(localStorage.getItem('session'));
-            if(storedData){
-                if(storedData.logged){
-                    console.log("holis");
-                    navigate('/');
-                }
-            }else{
-                console.log("user haven't logged");
-            }
-        }catch(e){
-            console.error(e.message);
-        }
-        
-        
-            
-    }, [])
-
-    useEffect(() => {
-        localStorage.setItem('session', userLogged);
-    }, [userLogged])
-
     async function onSubmit (data) {
         const jsonData = JSON.stringify(data);
             await fetch('https://guesswhofunc.azurewebsites.net/api/SIGNUP', {
@@ -66,8 +42,8 @@ function Signup() {
             .then((response) => response.json())
             .then((data) => {
                 if(data.success){
-                    setLogged(JSON.stringify({jsonData, logged:true}));      
-                    navigate('/');              
+                    sessionUpdate(JSON.stringify({jsonData, logged:true}));
+                    navigate('/');                
                 }else{
                     alert("Something went wrong");
                     navigate('/signup');
@@ -105,7 +81,6 @@ function Signup() {
                                 <TextField required type="password" className="w-9/12" id="outlined-basic" name='contra' label="Password" variant="outlined"
                                 {...register('contra')} error={errors.contra ? true: false}/>
                                 <Typography>{errors.contra?.message}</Typography>
-                            {/* <BasicButton navigate='/' onClick={handleClick} text='Signup'/> */}
                                 <Button onClick={handleSubmit(onSubmit)} className='w-60' variant="contained">Signup</Button>
                         </Stack>
                 </Stack>

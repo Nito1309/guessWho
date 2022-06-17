@@ -7,13 +7,16 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import BasicButton from './form-components/BasicButton';
 import BackButton from './form-components/BackButton';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate , useLocation } from 'react-router-dom';
 import * as Yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import SessionObserver from './SessionObserver';
 
 
-function Login() {
+function Login({sessionUpdate}) {
+
+    const navigate = useNavigate();
     const [values, setValues] = React.useState({
         amount: '',
         password: '',
@@ -21,9 +24,6 @@ function Login() {
         weightRange: '',
         showPassword: false,
       });
-      
-      const navigate = useNavigate();
-      const [userLogged, setLogged] = React.useState({});
 
       const validationSchema = Yup.object().shape({
         nickname: Yup.string()
@@ -52,28 +52,8 @@ function Login() {
       const handleMouseDownPassword = (event) => {
         event.preventDefault();
       };
-      
-      useEffect(() => {
-        try{
-            const storedData = JSON.parse(localStorage.getItem('session'));
-            if(storedData){
-                if(storedData.logged){
-                    console.log("holis");
-                    navigate('/');
-                }
-            }else{
-                console.log("user haven't logged");
-            }
-        }catch(e){
-            console.error(e.message);
-        }                 
-    }, [])
 
-    useEffect(() => {
-        localStorage.setItem('session', userLogged);
-        console.log('data added to local storage');
-    }, [userLogged])
-      async function onSubmit (data) {
+    async function onSubmit (data) {
         const jsonData = JSON.stringify(data);
             await fetch('https://guesswhofunc.azurewebsites.net/api/LOGIN', {
                 method: 'POST',
@@ -83,10 +63,11 @@ function Login() {
                 body: jsonData
             })
             .then((response) => response.json())
+
             .then((data) => {
-                if(data.success){
-                    setLogged(JSON.stringify({jsonData, logged:true}));      
-                    navigate('/');              
+                if(data.success){  
+                  sessionUpdate({jsonData, logged:true});   
+                  navigate('/');              
                 }else{
                     alert("Something went wrong");
                     navigate('/login');
@@ -96,6 +77,7 @@ function Login() {
                 console.error(error.message);
             });
     }
+
     return (
         <div id="parent" className='w-full h-screen bg-background-login bg-cover'>
             <BackButton text={'Guess who ?'} bgcolor='#F8CE3D' navigate='/'/>
@@ -132,7 +114,6 @@ function Login() {
             
             />
             <Typography>{errors.contra?.message}</Typography>
-            {/* <BasicButton navigate='/' text='Login'/> */}
             <Button onClick={handleSubmit(onSubmit)} className='w-60' variant="contained">Signup</Button>
 
                     </Stack>
