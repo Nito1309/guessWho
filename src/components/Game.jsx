@@ -1,8 +1,6 @@
 
-import { StackedLineChart } from "@mui/icons-material"
 import Stack from '@mui/material/Stack';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import EyeIcon from '../assets/img/eye_icon.svg'
 import BaldIcon from '../assets/img/bald_icon.svg'

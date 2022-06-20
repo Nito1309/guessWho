@@ -32,7 +32,7 @@ function Signup({sessionUpdate}) {
     
     async function onSubmit (data) {
         const jsonData = JSON.stringify(data);
-            await fetch('https://guesswhofunc.azurewebsites.net/api/SIGNUP', {
+            await fetch('https://gameguesswho.azurewebsites.net/api/SIGNUP', {
                 method: 'POST',
                 headers: {
                     "Content-Type":"application/json",

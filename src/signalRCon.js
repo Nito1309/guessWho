@@ -1,6 +1,5 @@
-import Router from './routing'
-import * as signalR from '@microsoft/signalr'
-const API= 'https://gameguesswho.azurewebsites.net'
+import signalR from '@microsoft/signalr'
+const API= 'https://gameguesswho.azurewebsites.net/'
 const connection = new signalR.HubConnectionBuilder()
         .withUrl(API + '/api')
         .configureLogging(signalR.LogLevel.Information)
@@ -12,11 +11,3 @@ const connection = new signalR.HubConnectionBuilder()
         connection.start()
         .catch(console.error);
 
-
-function App() {
-  return (
-    <Router/> 
-  );
-}
-
-export default App;
